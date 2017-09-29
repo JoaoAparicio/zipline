@@ -2413,8 +2413,6 @@ class TradingAlgorithm(object):
         --------
         :func:`zipline.api.pipeline_output`
         """
-        if self._pipelines:
-            raise NotImplementedError("Multiple pipelines are not supported.")
         if chunks is None:
             # Make the first chunk smaller to get more immediate results:
             # (one week, then every half year)
@@ -2454,8 +2452,6 @@ class TradingAlgorithm(object):
         :func:`zipline.api.attach_pipeline`
         :meth:`zipline.pipeline.engine.PipelineEngine.run_pipeline`
         """
-        # NOTE: We don't currently support multiple pipelines, but we plan to
-        # in the future.
         try:
             p, chunks = self._pipelines[name]
         except KeyError:
